@@ -12,6 +12,7 @@
 @property (nonatomic, strong) UIColor *accessoryColor;
 @property (nonatomic, strong) UIColor *highlightedColor;
 
+@property (nonatomic, strong) NSNumber *lineWidth;
 @property (nonatomic, strong) NSNumber *radius;
 @property (nonatomic, strong) NSNumber *rightPadding;
 

@@ -28,6 +28,7 @@
 - (id)initWithFrame:(CGRect)frame {
 	if (self = [super initWithFrame:frame]) {
 		self.backgroundColor = [UIColor clearColor];
+		self.lineWidth = @3;
 	}
 	return self;
 }
@@ -43,7 +44,7 @@
 	CGContextAddLineToPoint(ctxt, x - R, y + R);
 	CGContextSetLineCap(ctxt, kCGLineCapSquare);
 	CGContextSetLineJoin(ctxt, kCGLineJoinMiter);
-	CGContextSetLineWidth(ctxt, 3);
+	CGContextSetLineWidth(ctxt, self.lineWidth.floatValue);
 
 	if (self.highlighted) {
 		[self.highlightedColor setStroke];
