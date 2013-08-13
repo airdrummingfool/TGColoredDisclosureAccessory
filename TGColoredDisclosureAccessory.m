@@ -27,6 +27,7 @@
 #pragma mark - Lifecycle
 - (id)initWithFrame:(CGRect)frame {
 	if (self = [super initWithFrame:frame]) {
+		self.userInteractionEnabled = NO;
 		self.backgroundColor = [UIColor clearColor];
 		self.lineWidth = @3;
 	}
