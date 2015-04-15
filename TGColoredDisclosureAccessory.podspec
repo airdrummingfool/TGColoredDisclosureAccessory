@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "TGColoredDisclosureAccessory"
-  s.version          = "0.1.0"
+  s.version          = "1.0.0"
   s.summary          = "A configurable reimplementation of UITableViewCell's disclosure indicator."
   s.homepage         = "https://github.com/airdrummingfool/TGColoredDisclosureAccessory"
   s.license          = 'MIT'
