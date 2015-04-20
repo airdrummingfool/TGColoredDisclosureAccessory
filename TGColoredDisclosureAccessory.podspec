@@ -4,7 +4,7 @@ Pod::Spec.new do |s|
   s.summary          = "A configurable reimplementation of UITableViewCell's disclosure indicator."
   s.homepage         = "https://github.com/airdrummingfool/TGColoredDisclosureAccessory"
   s.license          = 'MIT'
-  s.author           = { "Tommy Goode" => "" }
+  s.author           = { "Tommy Goode" => "tommy@tgoode.com" }
   s.source           = { :git => "https://github.com/airdrummingfool/TGColoredDisclosureAccessory.git", :tag => s.version.to_s }
 
   s.platform     = :ios, '7.0'
