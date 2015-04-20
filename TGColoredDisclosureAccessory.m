@@ -25,27 +25,26 @@
 }
 
 #pragma mark - Lifecycle
-- (instancetype)initWithCoder:(NSCoder *)coder
-{
-    self = [super initWithCoder:coder];
-    if (self) {
-        [self commonInit];
-    }
-    return self;
+- (instancetype)initWithCoder:(NSCoder *)coder {
+	self = [super initWithCoder:coder];
+	if (self) {
+		[self commonInit];
+	}
+	return self;
 }
 
 - (id)initWithFrame:(CGRect)frame {
 	if (self = [super initWithFrame:frame]) {
-        [self commonInit];
+		[self commonInit];
 	}
 	return self;
 }
 
 - (void)commonInit {
-    self.userInteractionEnabled = NO;
-    self.backgroundColor = [UIColor clearColor];
-    self.lineWidth = 3;
-    self.radius = 4.5;
+	self.userInteractionEnabled = NO;
+	self.backgroundColor = [UIColor clearColor];
+	self.lineWidth = 3;
+	self.radius = 4.5;
 }
 
 - (void)drawRect:(CGRect)rect {
