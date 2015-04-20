@@ -5,17 +5,18 @@
 // Modified by Tommy Goode on 7/16/12.
 //
 
-#import <UIKit/UIKit.h>
+@import UIKit;
 
 @interface TGColoredDisclosureAccessory : UIControl
 
-@property (nonatomic, strong) UIColor *accessoryColor;
-@property (nonatomic, strong) UIColor *highlightedColor;
+@property (nonatomic, strong) IBInspectable UIColor *accessoryColor;
+@property (nonatomic, strong) IBInspectable UIColor *highlightedColor;
 
-@property (nonatomic, strong) NSNumber *lineWidth;
-@property (nonatomic, strong) NSNumber *radius;
-@property (nonatomic, strong) NSNumber *rightPadding;
+@property (nonatomic, assign) IBInspectable CGFloat lineWidth;
+@property (nonatomic, assign) IBInspectable CGFloat radius;
+@property (nonatomic, assign) IBInspectable CGFloat rightPadding;
 
 + (TGColoredDisclosureAccessory *)accessoryWithColor:(UIColor *)color;
-+ (TGColoredDisclosureAccessory *)accessoryWithColor:(UIColor *)color radius:(NSNumber *)radius rightPadding:(NSNumber *)rightPadding;
++ (TGColoredDisclosureAccessory *)accessoryWithColor:(UIColor *)color radius:(CGFloat)radius rightPadding:(CGFloat)rightPadding;
+
 @end

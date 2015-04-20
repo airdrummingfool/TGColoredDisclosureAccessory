@@ -11,12 +11,12 @@
 
 #pragma mark - Class creation
 + (TGColoredDisclosureAccessory *)accessoryWithColor:(UIColor *)color {
-	return [TGColoredDisclosureAccessory accessoryWithColor:color radius:@4.5 rightPadding:@0];
+	return [TGColoredDisclosureAccessory accessoryWithColor:color radius:4.5 rightPadding:0];
 }
 
-+ (TGColoredDisclosureAccessory *)accessoryWithColor:(UIColor *)color radius:(NSNumber *)radius rightPadding:(NSNumber *)rightPadding {
-	CGFloat height = radius.floatValue * 2. + 6.;
-	CGFloat width = radius.floatValue + 6. + rightPadding.floatValue;
++ (TGColoredDisclosureAccessory *)accessoryWithColor:(UIColor *)color radius:(CGFloat)radius rightPadding:(CGFloat)rightPadding {
+	CGFloat height = radius * 2. + 6.;
+	CGFloat width = radius + 6. + rightPadding;
 	TGColoredDisclosureAccessory *accessory = [[TGColoredDisclosureAccessory alloc] initWithFrame:CGRectMake(0, 0, width, height)];
 	accessory.accessoryColor = color;
 	accessory.radius = radius;
@@ -25,27 +25,40 @@
 }
 
 #pragma mark - Lifecycle
-- (id)initWithFrame:(CGRect)frame {
-	if (self = [super initWithFrame:frame]) {
-		self.userInteractionEnabled = NO;
-		self.backgroundColor = [UIColor clearColor];
-		self.lineWidth = @3;
+- (instancetype)initWithCoder:(NSCoder *)coder {
+	self = [super initWithCoder:coder];
+	if (self) {
+		[self commonInit];
 	}
 	return self;
 }
 
+- (id)initWithFrame:(CGRect)frame {
+	if (self = [super initWithFrame:frame]) {
+		[self commonInit];
+	}
+	return self;
+}
+
+- (void)commonInit {
+	self.userInteractionEnabled = NO;
+	self.backgroundColor = [UIColor clearColor];
+	self.lineWidth = 3;
+	self.radius = 4.5;
+}
+
 - (void)drawRect:(CGRect)rect {
 	// (x,y) is the center of the head of the arrow
-	CGFloat x = CGRectGetMaxX(self.bounds) - 2.5 - self.rightPadding.floatValue;
+	CGFloat x = CGRectGetMaxX(self.bounds) - 2.5 - self.rightPadding;
 	CGFloat y = CGRectGetMidY(self.bounds);
-	const CGFloat R = self.radius.floatValue;
+	const CGFloat R = self.radius;
 	CGContextRef ctxt = UIGraphicsGetCurrentContext();
 	CGContextMoveToPoint(ctxt, x - R, y - R);
 	CGContextAddLineToPoint(ctxt, x, y);
 	CGContextAddLineToPoint(ctxt, x - R, y + R);
 	CGContextSetLineCap(ctxt, kCGLineCapSquare);
 	CGContextSetLineJoin(ctxt, kCGLineJoinMiter);
-	CGContextSetLineWidth(ctxt, self.lineWidth.floatValue);
+	CGContextSetLineWidth(ctxt, self.lineWidth);
 
 	if (self.highlighted) {
 		[self.highlightedColor setStroke];
